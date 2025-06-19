@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@300;400;700&family=Orbitron:wght@400;700;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +91,39 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .comic-bubble {
+    @apply relative bg-white border-4 border-comic-dark rounded-3xl p-4 shadow-lg;
+  }
+
+  .comic-bubble::before {
+    content: "";
+    @apply absolute -bottom-4 left-8 w-0 h-0 border-l-[20px] border-r-[20px] border-t-[20px] border-l-transparent border-r-transparent border-t-white;
+  }
+
+  .comic-bubble::after {
+    content: "";
+    @apply absolute -bottom-5 left-7 w-0 h-0 border-l-[22px] border-r-[22px] border-t-[22px] border-l-transparent border-r-transparent border-t-comic-dark;
+  }
+
+  .hero-text {
+    @apply font-comic text-6xl font-bold text-hero-gold animate-hero-glow;
+    text-shadow:
+      3px 3px 0px #000,
+      -1px -1px 0px #000,
+      1px -1px 0px #000,
+      -1px 1px 0px #000;
+  }
+
+  .comic-card {
+    @apply transform transition-all duration-300 hover:scale-105 hover:rotate-1 hover:shadow-2xl;
+    box-shadow: 8px 8px 0px #000;
+  }
+
+  .comic-card:hover {
+    box-shadow: 12px 12px 0px #000;
   }
 }
